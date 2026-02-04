@@ -34,12 +34,18 @@ public class Main {
 
             } else if (command.startsWith("삭제?id=")) {
                 int id = Integer.parseInt(command.split("=")[1]);
+                boolean found = false;
                 for(int i = 0; i < wiseSayings.size(); i++) {
                     if(wiseSayings.get(i).id == id) {
                         wiseSayings.remove(i);
                         System.out.println(id + "번 명언이 삭제되었습니다.");
+                        found = true;
                         break;
                     }
+                }
+
+                if(!found) {
+                    System.out.println(id + "번 명언은 존재하지 않습니다.");
                 }
 
             } else if (command.equals("종료")) {
