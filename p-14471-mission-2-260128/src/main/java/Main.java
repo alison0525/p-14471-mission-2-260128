@@ -48,6 +48,28 @@ public class Main {
                     System.out.println(id + "번 명언은 존재하지 않습니다.");
                 }
 
+            } else if (command.startsWith("수정?id=")) {
+                int id = Integer.parseInt(command.split("=")[1]);
+                boolean found = false;
+                WiseSaying wiseSaying = null;
+                for(int i = 0; i < wiseSayings.size(); i++) {
+                    if(wiseSayings.get(i).id == id) {
+                        found = true;
+                        wiseSaying = wiseSayings.get(i);
+                        break;
+                    }
+                }
+
+                if(!found) {
+                    System.out.println(id+"번 명언은 존재하지 않습니다.");
+                }else{
+                    System.out.println("명언(기존) : " + wiseSaying.content);
+                    System.out.print("명언 : ");
+                    wiseSaying.content = scanner.nextLine();
+                    System.out.println("작가(기존) : " + wiseSaying.author);
+                    System.out.print("작가 : ");
+                    wiseSaying.author = scanner.nextLine();
+                }
             } else if (command.equals("종료")) {
                 break;
             }
