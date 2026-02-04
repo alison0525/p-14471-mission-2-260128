@@ -32,6 +32,16 @@ public class Main {
                     System.out.println(temp.id + " / " + temp.author + " / " + temp.content);
                 }
 
+            } else if (command.startsWith("삭제?id=")) {
+                int id = Integer.parseInt(command.split("=")[1]);
+                for(int i = 0; i < wiseSayings.size(); i++) {
+                    if(wiseSayings.get(i).id == id) {
+                        wiseSayings.remove(i);
+                        System.out.println(id + "번 명언이 삭제되었습니다.");
+                        break;
+                    }
+                }
+
             } else if (command.equals("종료")) {
                 break;
             }
